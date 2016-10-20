@@ -6,7 +6,7 @@ def rcinit():
 	#start_dir = os.getcwd()
 	
 	
-	cmd.do("@https://raw.githubusercontent.com/BYachnin/PymolScripts/master/pymolrc.pml")
+	cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/pymolrc.py")
 	
 	#os.chdir(start_dir)
 	return
