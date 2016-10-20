@@ -1,7 +1,7 @@
 from pymol import cmd
 import platform
 
-if (platform.node == "BrahmL")
+if (platform.node == "BrahmL"):
 	def goto(pathname):
 		path_select = {
 			"drive": "E:\Users\Brahm\Documents\Google Drive",
@@ -16,7 +16,7 @@ if (platform.node == "BrahmL")
 
 	cmd.extend("goto",goto)
 
-if (platform.node == "Brahm")
+if (platform.node == "Brahm"):
 	def goto(pathname):
 		path_select = {
 			"drive": "D:\Users\Brahm Yachnin\Documents\Google Drive",
