@@ -18,3 +18,4 @@ cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/goto.
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/modevectors.py")
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/figure_quality.py")
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/rcinit.py")
+cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/get_sequence.py")
