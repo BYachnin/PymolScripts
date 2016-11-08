@@ -5,7 +5,29 @@
 
 from pymol import cmd
 
-def get_sequence(sequence):
+def get_sequence(seq_object):
+	"""
+DESCRIPTION
+
+	The "get_sequence" command returns the one-letter code sequence of a selection to the terminal.
+	
+USAGE
+
+	get_sequence seq_object
+	
+ARGUMENTS
+
+	seq_object = string: name of the selection to be processed
+	
+NOTES
+
+	If the selection contains multiple chains, each chain will be printed out separately with a title.
+	Multi-object and multi-state selections may yield unexpected results, depending on the chain identifiers.
+	If the selection has different chain IDs and segids, this may also result in unexpected chain ordering.
+	Residues containing only hydrogen atoms and water molecules will be ignored.
+	Other residues other than the 20 canonical amino acids will be output as residue X.
+	"""
+
 	#Create a dictionary containing the three-to-one letter code conversion.
 	oneletter = {
 		'ALA' : 'A',
@@ -33,7 +55,7 @@ def get_sequence(sequence):
 	stored.atomlist_chain = []
 	stored.atomlist_resi = []
 	stored.atomlist_resn = []
-	cmd.iterate(sequence + ' and not elem H and not resn HOH and not resn WAT', 'stored.atomlist_chain.append(chain); stored.atomlist_resi.append(resi); stored.atomlist_resn.append(resn)')
+	cmd.iterate(seq_object + ' and not elem H and not resn HOH and not resn WAT', 'stored.atomlist_chain.append(chain); stored.atomlist_resi.append(resi); stored.atomlist_resn.append(resn)')
 	
 	#Set up a tracking variable for chain and resn.
 	curchain = ''
@@ -75,4 +97,6 @@ def get_sequence(sequence):
 	print out_seq
 			
 
-cmd.extend("get_sequence",get_sequence)
+cmd.extend('get_sequence', get_sequence)
+#Configure the seq_object argument to be a selection when tab completing.
+cmd.auto_arg[0]['get_sequence'] = [ cmd.selection_sc, 'selection', ' ' ]
