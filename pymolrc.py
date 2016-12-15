@@ -19,3 +19,4 @@ cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/modev
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/figure_quality.py")
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/rcinit.py")
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/get_sequence.py")
+cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/pdb2pose.py")
