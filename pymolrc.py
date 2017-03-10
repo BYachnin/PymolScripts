@@ -20,3 +20,4 @@ cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/figur
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/rcinit.py")
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/get_sequence.py")
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/pdb2pose.py")
+cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/color_by_restype.py")
