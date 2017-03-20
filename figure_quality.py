@@ -25,5 +25,6 @@ def moviemode():
 	cmd.set("matrix_mode", 1)
 	cmd.set("cache_frames", 1)
 	cmd.set("cache_display", 1)
+	cmd.set('ray_opaque_background', 1)
 	
 cmd.extend("moviemode", moviemode)
