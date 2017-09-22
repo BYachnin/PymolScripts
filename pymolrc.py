@@ -22,3 +22,4 @@ cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/get_s
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/pdb2pose.py")
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/color_by_restype.py")
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/design_movie.py")
+cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/loadBfacts.py")
