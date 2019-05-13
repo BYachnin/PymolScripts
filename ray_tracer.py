@@ -15,7 +15,7 @@ def ray_tracer (width, height, scenes = "all", ray = 1, directory = ""):
 	"""
 	
 	#Check if 'all' happens to be a scene name.  If so, print an error message and quit.
-	assert !("all" in cmd.get_scene_list()), "You have 'all' as a scene name.  This causes a conflict with ray_tracer.  Change the scene name."
+	assert ("all" not in cmd.get_scene_list()), "You have 'all' as a scene name.  This causes a conflict with ray_tracer.  Change the scene name."
 	
 	#The directory name must end in a forward / (unless it is an empty string).  If it doesn't, add one for the user
 	if (directory != "" and directory[-1:] != "/"): directory = directory + "/"
