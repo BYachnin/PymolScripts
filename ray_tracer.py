@@ -22,11 +22,14 @@ def ray_tracer (width, height, scenes = "all", ray = 1, directory = ""):
 	
 	#Figure out which scenes to png
 	#if scenes == all, get all scenes and use that as our list.
-	if (scenes == 'all'): scene_list = cmd.get_scene_list()
+	if (scenes == 'all'):
+		scene_list = cmd.get_scene_list()
 	#if scenes is a list object, use that as our list.
-	elif (isinstance(scenes, list): scene_list = scenes
+	elif (isinstance(scenes, list):
+		scene_list = scenes
 	#Otherwise, assume we have a string that corresponds to a scene name
-	else: scene_list = ["scenes"]
+	else:
+		scene_list = ["scenes"]
 	
 	#scene_list should now have a list of all the scenes to render.
 	#Loop over scene_list and cmd.png each one.
