@@ -32,7 +32,7 @@ def ray_tracer (width, height, scenes = "all", ray = 1, directory = ""):
 	#Loop over scene_list and cmd.png each one.
 	for scene in scene_list:
 		#Check that the scene actually exists, or spit out an error.
-		if !(scene in cmd.get_scene_list()):
+		if (scene not in cmd.get_scene_list()):
 			print("The scene " + scene + " is not a scene in your pymol environment.  Skipping.")
 			continue
 			
