@@ -25,7 +25,7 @@ def ray_tracer (width, height, scenes = "all", ray = 1, directory = ""):
 	if (scenes == 'all'):
 		scene_list = cmd.get_scene_list()
 	#if scenes is a list object, use that as our list.
-	elif (isinstance(scenes, list):
+	elif (isinstance(scenes, list)):
 		scene_list = scenes
 	#Otherwise, assume we have a string that corresponds to a scene name
 	else:
