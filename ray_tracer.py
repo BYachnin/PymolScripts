@@ -30,6 +30,9 @@ def ray_tracer (width, height, scenes = "all", ray = 1, directory = ""):
 	#Otherwise, assume we have a string that corresponds to a scene name
 	else:
 		scene_list = ["scenes"]
+		
+	#Make sure that the scene_animation setting is set to 0, or changing view will not work.
+	cmd.set("scene_animation", 0)
 	
 	#scene_list should now have a list of all the scenes to render.
 	#Loop over scene_list and cmd.png each one.
