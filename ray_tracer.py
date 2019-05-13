@@ -41,6 +41,7 @@ def ray_tracer (width, height, scenes = "all", ray = 1, directory = ""):
 			
 		#Change to the appropriate scene.
 		cmd.scene(scene)
+		cmd.sync()
 		#Figure out the full name of the output file.
 		imgname = directory + scene + ".png"
 		
