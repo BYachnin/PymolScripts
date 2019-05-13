@@ -23,3 +23,4 @@ cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/pdb2p
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/color_by_restype.py")
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/design_movie.py")
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/loadBfacts.py")
+cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/ray_tracer.py")
