@@ -21,7 +21,7 @@ class NorthAHo(Enum):
     H3_END = '138'
 
 #Pymol commands
-def select_cdrs(object = "all", cdr_def = 'North-Aho'):
+def select_cdrs(object = "all", heavy="H", light="L", cdr_def = 'North-Aho'):
     """
 DESCRIPTION
 
@@ -62,14 +62,14 @@ NOTES
     print(object)
     print(objects)
     for obj in objects:
-        cmd.select(obj + "_H1", "chain H and resi {0}-{1}".format(cdr.H1_START.value, cdr.H1_END.value))
-        cmd.select(obj + "_H2", "chain H and resi {0}-{1}".format(cdr.H2_START.value, cdr.H2_END.value))
-        cmd.select(obj + "_H3", "chain H and resi {0}-{1}".format(cdr.H3_START.value, cdr.H3_END.value))
+        cmd.select(obj + "_H1", "chain {0} and resi {1}-{2}".format(heavy, cdr.H1_START.value, cdr.H1_END.value))
+        cmd.select(obj + "_H2", "chain {0} and resi {1}-{2}".format(heavy, cdr.H2_START.value, cdr.H2_END.value))
+        cmd.select(obj + "_H3", "chain {0} and resi {1}-{2}".format(heavy, cdr.H3_START.value, cdr.H3_END.value))
         cmd.select(obj + "_Hcdrs", "{0}_H1 or {0}_H2 or {0}_H3".format(obj))
 
-        cmd.select(obj + "_L1", "chain L and resi {0}-{1}".format(cdr.L1_START.value, cdr.L1_END.value))
-        cmd.select(obj + "_L2", "chain L and resi {0}-{1}".format(cdr.L2_START.value, cdr.L2_END.value))
-        cmd.select(obj + "_L3", "chain L and resi {0}-{1}".format(cdr.L3_START.value, cdr.L3_END.value))
+        cmd.select(obj + "_L1", "chain {0} and resi {1}-{2}".format(light, cdr.L1_START.value, cdr.L1_END.value))
+        cmd.select(obj + "_L2", "chain {0} and resi {1}-{2}".format(light, cdr.L2_START.value, cdr.L2_END.value))
+        cmd.select(obj + "_L3", "chain {0} and resi {1}-{2}".format(light, cdr.L3_START.value, cdr.L3_END.value))
         cmd.select(obj + "_Lcdrs", "{0}_L1 or {0}_L2 or {0}_L3".format(obj))
 
 cmd.extend('select_cdrs', select_cdrs)
