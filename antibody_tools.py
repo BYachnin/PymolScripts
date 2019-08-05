@@ -1,16 +1,27 @@
 # These are quick visualization tools for antibody and antibody-antigen structures.
-
+from enum import Enum
 from pymol import cmd
 
 #Helper functions
 
 
 #CDR Definitions
-#class North-Aho(Enum):
-#    L1_START =
+class NorthAHo(Enum):
+    L1_START = '24'
+    L1_END = '42'
+    L2_START = '57'
+    L2_END = '72'
+    L3_START = '107'
+    L3_END = '138'
+    H1_START = '24'
+    H1_END = '42'
+    H2_START = '57'
+    H2_END = '69'
+    H3_START = '107'
+    H3_END = '138'
 
 #Pymol commands
-def select_cdrs(object = "all"):
+def select_cdrs(object = "all", cdr_def = 'North-Aho'):
     """
 DESCRIPTION
 
@@ -39,17 +50,26 @@ NOTES
     else:
         objects = ",".split(object)
 
+    #Get the appropriate CDR definitions
+    cdrs = {
+        'NORTH-AHO': NorthAHo
+    }
+
+    cdr = cdrs[cdr_def.upper()]
+    print(cdr.H1_START)
+    print(cdr.H1_START.value)
+
     print(object)
     print(objects)
     for obj in objects:
-        cmd.select(obj + "_H1", "chain H and resi 24-42")
-        cmd.select(obj + "_H2", "chain H and resi 57-69")
-        cmd.select(obj + "_H3", "chain H and resi 107-138")
+        cmd.select(obj + "_H1", "chain H and resi {0}-{1}".format(cdr.H1_START.value, cdr.H1_END.value))
+        cmd.select(obj + "_H2", "chain H and resi {0}-{1}".format(cdr.H2_START.value, cdr.H2_END.value))
+        cmd.select(obj + "_H3", "chain H and resi {0}-{1}".format(cdr.H3_START.value, cdr.H3_END.value))
         cmd.select(obj + "_Hcdrs", "{0}_H1 or {0}_H2 or {0}_H3".format(obj))
 
-        cmd.select(obj + "_L1", "chain L and resi 24-42")
-        cmd.select(obj + "_L2", "chain L and resi 57-72")
-        cmd.select(obj + "_L3", "chain L and resi 107-138")
+        cmd.select(obj + "_L1", "chain L and resi {0}-{1}".format(cdr.L1_START.value, cdr.L1_END.value))
+        cmd.select(obj + "_L2", "chain L and resi {0}-{1}".format(cdr.L2_START.value, cdr.L2_END.value))
+        cmd.select(obj + "_L3", "chain L and resi {0}-{1}".format(cdr.L3_START.value, cdr.L3_END.value))
         cmd.select(obj + "_Lcdrs", "{0}_L1 or {0}_L2 or {0}_L3".format(obj))
 
 cmd.extend('select_cdrs', select_cdrs)
