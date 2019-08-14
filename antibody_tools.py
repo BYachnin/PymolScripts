@@ -79,5 +79,6 @@ NOTES
         cmd.select(obj + "_allcdrs", "{0}_Lcdrs or {0}_Hcdrs".format(obj))
 
 cmd.extend('select_cdrs', select_cdrs)
-# Configure the seq_object argument to be a selection when tab completing.
-# cmd.auto_arg[0]['get_sequence'] = [cmd.selection_sc, 'selection', ' ']
+# Configure the object argument to be an object when tab completing.
+cmd.auto_arg[0]['select_cdrs'] = [cmd.object_sc, 'object', ' ']
+
