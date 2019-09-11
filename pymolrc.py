@@ -24,6 +24,7 @@ cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/color
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/design_movie.py")
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/loadBfacts.py")
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/ray_tracer.py")
+cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/antibody_tools.py")
 
 #Try to set up a pyrosetta link
 import sys,os
