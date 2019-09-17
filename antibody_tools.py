@@ -37,6 +37,19 @@ class NorthAHo(Enum):
     H3_START = '107'
     H3_END = '138'
 
+class Chothia(Enum):
+    L1_START = '24'
+    L1_END = '34'
+    L2_START = '50'
+    L2_END = '56'
+    L3_START = '89'
+    L3_END = '97'
+    H1_START = '26'
+    H1_END = '32'
+    H2_START = '52'
+    H2_END = '56'
+    H3_START = '95'
+    H3_END = '102'
 
 # Pymol commands
 def select_cdrs(object="all", heavy="H", light="L", cdr_def='North-Aho'):
@@ -59,7 +72,8 @@ NOTES
     """
     # Get the appropriate CDR definitions
     cdrs = {
-        'NORTH-AHO': NorthAHo
+        'NORTH-AHO': NorthAHo,
+        'CHOTHIA': Chothia
     }
 
     # Figure out which objects to work on.
