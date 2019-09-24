@@ -37,6 +37,7 @@ elif sys.version_info[0] == 3:
     pyr_scpt = "PyMOL-RosettaServer.python3.py"
 
 #Check the environment variables for Rosetta
+pyr_scpt_path = None
 if 'ROSETTA' in os.environ:
     pyr_scpt_path = os.environ['ROSETTA'] + '/main' + main_to_pyrsrv
 elif 'ROSDB' in os.environ:
