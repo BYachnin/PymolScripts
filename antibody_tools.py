@@ -56,15 +56,18 @@ def select_cdrs(object="all", heavy="H", light="L", cdr_def='North-Aho'):
     """
 DESCRIPTION
 
-	***
+	Command to create selection objects that cover various CDRs.  The CDR definition of the antibody needs to be correctly specified.
 	
 USAGE
 
-	select_cdrs object
+	select_cdrs myantibody, cdr_def="chothia"
 	
 ARGUMENTS
 
-	object = string: name of the object
+	object = str: name of the object(s) to create selections for.  If multiple objects are specified, a unique specifier for each will be created.
+        heavy = str: Chain identifier for the heavy chain.
+        light = str: Chain identifier for the light chain.
+        cdr_def = str: Antibody numbering scheme and CDR definition combination to use.
 
 NOTES
 
@@ -113,18 +116,28 @@ def colour_antibody(object="all", heavy_col="orange", light_col="yellow", h1="",
     """
 DESCRIPTION
 
-    ***
-
+        Command to create selection objects that cover various CDRs, and colour the regions as well.  The CDR definition of the antibody needs to be correctly specified.  No colouring will be performed if a particular region has "" specififed as its colour.  CDR colouring supercedes chain colouring.
+        
 USAGE
 
-    select_cdrs object
-
+        colour_antibody myantibody, cdr_def=chothia, light_col=red, h3=blue, cdr_def=chothia
+        
 ARGUMENTS
 
-    object = string: name of the object
+        object = str: name of the object(s) to create selections for.  If multiple objects are specified, a unique specifier for each will be created.
+        heavy_col = str: What colour to make the heavy chain.
+        light_col = str: What colour to make the light chain.
+        h1 = str: What colour to make HCDR1.
+        h2 = str: What colour to make HCDR2.
+        h3 = str: What colour to make HCDR3.
+        l1 = str: What colour to make LCDR1.
+        l2 = str: What colour to make LCDR2.
+        l3 = str: What colour to make LCDR3.
+        heavy = str: Chain identifier for the heavy chain.
+        light = str: Chain identifier for the light chain.
+        cdr_def = str: Antibody numbering scheme and CDR definition combination to use.
 
 NOTES
-
 
     """
 
