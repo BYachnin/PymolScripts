@@ -1,7 +1,7 @@
 from pymol import cmd
 import random
 
-def rand_sequence(selector):
+def rand_sequence(selector, restypes = ['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']):
 	"""
 DESCRIPTION
 
@@ -9,11 +9,12 @@ DESCRIPTION
 	
 USAGE
 
-	rand_sequence selector
+	rand_sequence selector, restypes
 	
 ARGUMENTS
 
 	selector = string: name of the selection to "design"
+	restypes = list: Using three-letter codes, list the amino acid alphabet to use in "designing."  For example, to only allow Ser, Thr, or Tyr, use restypes = ['SER', 'THR', 'TYR'] .  Defaults to all 20 amino acids.
 	
 NOTES
 
@@ -28,7 +29,7 @@ NOTES
 	cmd.iterate('(' + selector + ') and name ca', 'stored.atomlist_object.append(model); stored.atomlist_chain.append(chain); stored.atomlist_resi.append(resi)')
 	
 	#Make a list of residue types
-	res_types = ['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']
+	#res_types = ['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']
 	
 	#For each residue:
 	#1. Select a random residue to mutate to.
@@ -41,7 +42,7 @@ NOTES
 		curres = stored.atomlist_object[atomidx] + ' and chain ' + stored.atomlist_chain[atomidx] + ' and resi ' + stored.atomlist_resi[atomidx]
 				
 		#Pick a random residue type.
-		newres = random.choice(res_types)
+		newres = random.choice(restypes)
 	
 		#Set up the mutagenesis wizard.
 		cmd.wizard('mutagenesis')
@@ -73,7 +74,7 @@ cmd.extend('rand_sequence', rand_sequence)
 #Configure the selector argument to be a selection when tab completing.
 cmd.auto_arg[0]['rand_sequence'] = [ cmd.selection_sc, 'selection', ' ' ]
 
-def design_movie(object, selector, frames):
+def design_movie(object, selector, frames, restypes = ['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']):
 	"""
 DESCRIPTION
 
@@ -81,13 +82,14 @@ DESCRIPTION
 	
 USAGE
 
-	design_movie selection
+	design_movie object, selector, frames, restypes
 	
 ARGUMENTS
 
 	object = string: name of the object containing the "designed" selection
 	selector = string: name of the selection to design.  Do not include the object name.
 	frames = integer: the number of "designs" to make.
+	restypes = list: Using three-letter codes, list the amino acid alphabet to use in "designing."  For example, to only allow Ser, Thr, or Tyr, use restypes = ['SER', 'THR', 'TYR'] .  Defaults to all 20 amino acids.
 	
 NOTES
 
@@ -97,11 +99,9 @@ NOTES
 	#Loop over the number of frames we want.
 	for frm in range(1,int(frames)+1):
 		#Create a new object from selection.
-		#frm_obj = 'Des'+str(frm)
-		#cmd.create(frm_obj, object)
 		cmd.create('Design', object)
 		#Make mutations in that new object.
-		rand_sequence('Design and ' + selector)
+		rand_sequence('Design and ' + selector, restypes)
 		#Add the new object to the rosettify object as the next available state.
 		cmd.create('rosettify', 'Design', target_state=-1)
 		#Delete the Design object.
