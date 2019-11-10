@@ -71,7 +71,7 @@ NOTES
 
 			#Check if the current chain and resi are in atomlist.
 			if (str(curresi) + curchain in atomlist):
-				print "The pose number for residue " + str(curresi) + curchain + " is " + str(posenum) + ".\n"
+				print("The pose number for residue " + str(curresi) + curchain + " is " + str(posenum) + ".\n")
 			
 
 cmd.extend('pdb2pose', pdb2pose)

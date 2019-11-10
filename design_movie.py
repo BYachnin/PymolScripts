@@ -54,7 +54,7 @@ NOTES
 		#Generate the library of backbone-independent rotamers.
 		lib = cmd.get_wizard().ind_library.get(newres)
 		
-		print newres
+		print(newres)
 		
 		#Change the residue to the selected residue type
 		cmd.get_wizard().do_select('''sele''')
