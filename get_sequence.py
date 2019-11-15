@@ -95,8 +95,8 @@ NOTES
 	out_seq = out_seq + '\n'
 	
 	print(out_seq)
-        return(out_seq)
-			
+	return out_seq
+	
 
 cmd.extend('get_sequence', get_sequence)
 #Configure the seq_object argument to be a selection when tab completing.
