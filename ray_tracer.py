@@ -29,7 +29,7 @@ def ray_tracer (width, height, scenes = "all", ray = 1, directory = ""):
 		scene_list = scenes
 	#Otherwise, assume we have a string that corresponds to a scene name
 	else:
-		scene_list = ["scenes"]
+		scene_list = [scenes]
 		
 	#Make sure that the scene_animation setting is set to 0, or changing view will not work.
 	cmd.set("scene_animation", 0)
