@@ -26,6 +26,8 @@ cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/loadB
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/ray_tracer.py")
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/antibody_tools.py")
 
+cmd.do("run https://raw.githubusercontent.com/Pymol-Scripts/Pymol-script-repo/master/color_by_conservation.py")
+
 #Try to set up a pyrosetta link
 import sys,os
 main_to_pyrsrv = '/source/src/python/PyRosetta/src/' # How to get from main to the location of the PyMOL-RosettaServer files
