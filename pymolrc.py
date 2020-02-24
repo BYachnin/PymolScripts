@@ -28,6 +28,12 @@ cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/antib
 
 cmd.do("run https://raw.githubusercontent.com/Pymol-Scripts/Pymol-script-repo/master/color_by_conservation.py")
 
+# If available, try to import the visterra visualization tools
+try:
+    from vis_pymol.display_utils import *
+except ModuleNotFoundError:
+    print("Visterra visualization tools not found.")
+
 #Try to set up a pyrosetta link
 import sys,os
 main_to_pyrsrv = '/source/src/python/PyRosetta/src/' # How to get from main to the location of the PyMOL-RosettaServer files
