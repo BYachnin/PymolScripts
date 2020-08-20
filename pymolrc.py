@@ -44,9 +44,13 @@ if sys.version_info[0] == 2:
 elif sys.version_info[0] == 3:
     pyr_scpt = "PyMOL-RosettaServer.python3.py"
 
-#Check the environment variables for Rosetta
+#Check for visterra_scripts server or environment variables for Rosetta
 pyr_scpt_path = None
-if 'ROSETTA' in os.environ:
+if os.path.exists(os.path.expanduser("~") + "/visterra_scripts/vis_pymol/" + pyr_scpt.replace('.python', '')):
+    pyr_scpt = pyr_scpt.replace('.python', '')
+    pyr_scpt_path = os.path.expanduser("~") + "/visterra_scripts/vis_pymol/"
+    print("Found the visterra_script pymol server file.")
+elif 'ROSETTA' in os.environ:
     pyr_scpt_path = os.environ['ROSETTA'] + '/main' + main_to_pyrsrv
 elif 'ROSDB' in os.environ:
     pyr_scpt_path = os.environ['ROSDB'] + '/..' + main_to_pyrsrv
