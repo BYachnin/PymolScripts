@@ -61,7 +61,7 @@ NOTES
 		cmd.get_wizard().set_mode(newres)
 		#If the residue is not GLY, pick a random rotamer and change to it.
 		if (newres not in ('GLY', 'ALA')):
-			newrot = random.randint(1,len(lib))
+			newrot = random.randint(0, len(lib) - 1)
 			cmd.get_wizard().do_state(newrot)
 		#Apply the changes
 		cmd.get_wizard().apply()
