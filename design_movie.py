@@ -57,16 +57,17 @@ NOTES
 		print(newres)
 		
 		#Change the residue to the selected residue type
-		cmd.get_wizard().do_select('''sele''')
-		cmd.get_wizard().set_mode(newres)
-		#If the residue is not GLY, pick a random rotamer and change to it.
-		if (newres not in ('GLY', 'ALA')):
-			newrot = random.randint(1, len(lib) - 2)
-			print(f"{newres=}")
-			print(f"{newrot=}")
-			cmd.get_wizard().do_state(newrot)
-		#Apply the changes
-		cmd.get_wizard().apply()
+		try:
+			cmd.get_wizard().do_select('''sele''')
+			cmd.get_wizard().set_mode(newres)
+			#If the residue is not GLY, pick a random rotamer and change to it.
+			if (newres not in ('GLY', 'ALA')):
+				newrot = random.randint(1, len(lib) - 1)
+				cmd.get_wizard().do_state(newrot)
+			#Apply the changes
+			cmd.get_wizard().apply()
+		except:
+			pass
 		#Clear the wizard
 		cmd.get_wizard().clear()
 		cmd.set_wizard()
