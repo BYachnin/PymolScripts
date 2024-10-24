@@ -59,10 +59,11 @@ NOTES
 	
 	#Set up a tracking variable for chain and resn.
 	curchain = ''
+	chainseq = ''
 	curresi = ''
 	
-	#Set up an empty string to hold the sequences.
-	out_seq = ''
+	#Set up an empty dictionary to hold the sequences.
+	out_seq = {}
 	
 	#Iterate over all indecies in the atomlist series.  Using atomlist_chain because they are all the same.
 	for atomidx in range(len(stored.atomlist_chain)):
@@ -70,9 +71,10 @@ NOTES
 		if (stored.atomlist_chain[atomidx] != curchain):
 			#Reset the current chain.
 			curchain = stored.atomlist_chain[atomidx]
-			#Add a new chain identifier in the output sequence.
-			if (out_seq != ''): out_seq = out_seq + '\n'
-			out_seq = out_seq + "Chain " + curchain + ":\n"
+			chainseq = ''
+			##Add a new chain identifier in the output sequence.
+			#if (out_seq != ''): out_seq = out_seq + '\n'
+			#out_seq = out_seq + "Chain " + curchain + ":\n"
 			
 			#Reset the curresi to an empty string to force a new residue.
 			curresi = ''
@@ -89,12 +91,13 @@ NOTES
 			else:
 				curletter = oneletter[stored.atomlist_resn[atomidx]]
 				
-			#Add the residue to the output sequence.
-			out_seq = out_seq + curletter
+			#Add the residue to the chain sequence.
+			chainseq += curletter
+		
+		if chainseq:
+			out_seq[curchain] = chainseq
 	
-	out_seq = out_seq + '\n'
-	
-	print(out_seq)
+	print("".join(f"Chain {chain}:\n{seq}\n" for chain, seq in out_seq.items()))
 	return out_seq
 	
 
