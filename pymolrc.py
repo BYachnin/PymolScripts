@@ -26,7 +26,7 @@ cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/loadB
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/ray_tracer.py")
 cmd.do("run https://raw.githubusercontent.com/BYachnin/PymolScripts/master/antibody_tools.py")
 
-cmd.do("run https://raw.githubusercontent.com/Pymol-Scripts/Pymol-script-repo/master/color_by_conservation.py")
+cmd.do("run https://raw.githubusercontent.com/Pymol-Scripts/Pymol-script-repo/master/scripts/color_by_conservation.py")
 
 # If available, try to import the visterra visualization tools
 try:
